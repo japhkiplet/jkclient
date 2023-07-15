@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import './login.css'
 import { loginUser } from "../redux/apiCalls";
 import { useSelector,useDispatch } from 'react-redux';
+import { useEffect } from "react";
 
 const Login = () => {
 const  dispatch  = useDispatch();
@@ -22,11 +23,17 @@ const Schema =yup.object().shape({
   })
   
     const {register, handleSubmit, formState: { errors }} = useForm({
-      resolver :yupResolver(Schema)})
+      resolver :yupResolver(Schema)});
+
+      useEffect(() => {
+        if(username) {
+          navigate('/home')
+        }
+      }, [username, navigate]);
   
     const onSubmit = (data) =>{
       loginUser(dispatch,data);
-      navigate('/home')
+     
       
     }
   
@@ -57,6 +64,3 @@ const Schema =yup.object().shape({
 
 export default Login
                 
-              
-          
-        
