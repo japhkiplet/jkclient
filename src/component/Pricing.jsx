@@ -1,24 +1,45 @@
-import './pricing.css'
-import { useEffect, useState } from 'react';
-import PRODUCTS from '../Product';
-import Shop  from './Shop';
+import React, { useEffect } from 'react';
+import { getProductsData } from '../redux/apiCalls';
+import { useSelector, useDispatch } from 'react-redux';
+import './pricing.css';
+import { addToCart } from '../redux/cartSlice'; 
 
 const Pricing = () => {
-   
-    return (
-        <div className='pricing'>
-              <h1>JK-SHOP</h1>
-            <div className="pricing-container">
-              {
-                PRODUCTS.map((product) => (
-                  <Shop data={product}/>
-                ))
-               
-              }
-            </div>
-                  
-        </div>
-     ); 
-}
+  const dispatch = useDispatch();
+  const { product } = useSelector((state) => state.product);
+ 
+  useEffect(() => {
+    getProductsData(dispatch);
+  }, [dispatch]);
 
-export default Pricing
+  const handleAddToCart = (product) => {
+    const cartItem = { ...product, quantity: 1 }; 
+    dispatch(addToCart(cartItem));
+  };
+
+  return (
+    <div className='pricing'>
+      <h1>JK_SHOP</h1>
+      <div className="pricing-container">
+        {product && product.map((product) => (
+          <div key={product.id} className="product-card">
+            <div className="product-left">
+              <img src={product.ImageURL} alt={product.title} />
+              <h2>{product.Title}</h2>
+            </div>
+            <div className='product-details'>
+              <span>Price: ksh {product.Price}</span>
+              <p>{product.Description}</p>
+              <p>Category: {product.Category}</p>
+              <button className="pricingbtn" onClick={() => handleAddToCart(product)}>
+                Add To Cart
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Pricing;

@@ -1,8 +1,10 @@
 import {createSlice} from '@reduxjs/toolkit'
+
 const productSlice = createSlice({
     name:"product",
     initialState:{
-        product: null,
+        product: [],
+        singleProduct: [],
         isFetching:false,
         error:false
     },
@@ -12,7 +14,7 @@ const productSlice = createSlice({
         },
         productSuccess:(state,action)=>{
             state.isFetching = false;
-            state.user = action.payload;
+            state.product = action.payload;
             state.error = false;
         },
         productFailure:(state)=>{
@@ -25,7 +27,7 @@ const productSlice = createSlice({
           },
           createProductSuccess: (state, action) => {
             state.isFetching = false;
-            state.todos.push(action.payload);
+            state.product.push(action.payload);
             state.error = false;
           },
           createProductFailure: (state) => {

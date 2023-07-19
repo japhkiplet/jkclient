@@ -6,18 +6,20 @@ const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0)
 
     const data = [
-        "https://media.istockphoto.com/id/1436061606/photo/flying-colorful-womens-sneaker-isolated-on-white-background-fashionable-stylish-sports-shoe.jpg?s=1024x1024&w=is&k=20&c=anQJwG2c4-ZEqf9BgeIm3ph76JZWSU2-GbOE7b_OzcA=",
-        "https://media.istockphoto.com/id/1425880214/photo/leather-mens-shoe-on-white-background.jpg?s=1024x1024&w=is&k=20&c=A181QXjB5X_Ny2ARjWO7QU6Q4Y1TxInrVX9WbodzBqE=",
-        "https://media.istockphoto.com/id/1397720464/photo/casual-leather-boots-and-shoes-for-men-on-a-wooden-shelf-in-a-retail-store.jpg?s=1024x1024&w=is&k=20&c=Mosjuz_FhVMCP0S2gO-oF8xkytxUhf83gMUT05aCfXM=",
-        "https://media.istockphoto.com/id/1279108197/photo/variety-of-womens-fashion-comfortable-shoes-of-all-seasons-on-a-light-background-top-view.jpg?s=1024x1024&w=is&k=20&c=I7--KKDMWMPX0yQsaVUTr5S7jBPH9RcM8owFkL6G00E=",
-        "https://images.pexels.com/photos/19090/pexels-photo.jpg?cs=srgb&dl=pexels-web-donut-19090.jpg&fm=jpg",
-        "https://media.istockphoto.com/id/1148822167/photo/close-up-shot-of-runners-shoes.jpg?s=612x612&w=0&k=20&c=jBfVGW1Ot-FXdA2AQ2eXVrKYcf3BsLGbkYYnRi2K_TE="
-    ];
+        "https://media.istockphoto.com/id/1350560575/photo/pair-of-blue-running-sneakers-on-white-background-isolated.webp?b=1&s=170667a&w=0&k=20&c=liUSgX6SafJ7HWvefFqR9-pnf3KuH6v1lwQ6iEpePWc=",
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+        "https://rukminim2.flixcart.com/image/450/500/l51d30w0/shoe/z/w/c/10-mrj1914-10-aadi-white-black-red-original-imagft9k9hydnfjp.jpeg?q=90&crop=false",
+        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/1566421/pexels-photo-1566421.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/2759783/pexels-photo-2759783.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/267242/pexels-photo-267242.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/1615748/pexels-photo-1615748.jpeg?auto=compress&cs=tinysrgb&w=600",
+       ];
     const prevSlide = () =>{
-        setCurrentSlide(currentSlide=== 0 ?3 : (prev) => prev - 1);
+        setCurrentSlide(currentSlide=== 0 ?2 : (prev) => prev - 1);
     }
     const nextSlide = () => {
-        setCurrentSlide(currentSlide === 3 ? 0 : (next => next + 1));
+        setCurrentSlide(currentSlide === 2 ? 0 : (next => next + 1));
     }
   return (
     <div className='slider'>
@@ -28,6 +30,8 @@ const Slider = () => {
             <img src={data[3]} alt="" />
             <img src={data[4]} alt="" />
             <img src={data[5]} alt="" />
+            <img src={data[6]} alt="" />
+            <img src={data[7]} alt="" />
         </div>
         <div className="icons">
             <div className="icon" onClick={prevSlide}>

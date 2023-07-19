@@ -1,0 +1,40 @@
+.sidebar-container{
+    display: flex;
+   
+  }
+  .sidebar{
+    background: rgb(95, 91, 91);
+    border-radius: 7px;
+    height: 100vh;
+    width: 150px;
+    color: white;
+    text-decoration: none;
+  }
+  .top-section{
+    display: flex;
+    
+    padding: 10px 
+  
+  }
+  .logo{
+    font-size: 30px;
+  }
+  
+  .link{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+
+    
+    
+  }
+  
+ 
+  .link:hover{
+    background: rgb(118, 203, 252);
+    color: black;
+  }
+  
+ 

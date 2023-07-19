@@ -23,8 +23,8 @@ const About = () => {
         </div>
         <div className='image3'>
           <img src={back} alt="Image" />
-          <p>We operate 24hrs </p>
-          <p>CALL : +2540105220714</p>
+          <p>We operate 24hrs </p> <hr />
+          <p>CALL : <span>+2540105220714</span></p>
           <p>location : Nairobi, KENYA</p>
           <p>store : RX34527 WEST</p>
           

@@ -13,6 +13,9 @@
         
         
     }
+    .formone > p{
+        color: red;
+    }
     .formone .bg{
         top: 0;
     }

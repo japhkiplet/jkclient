@@ -7,13 +7,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { logOutUser } from "../redux/apiCalls";
 import { useNavigate } from "react-router-dom";
 
+
+
 const Navbar = () => {
   const navigate = useNavigate()
   const name = useSelector((state) => state.user.user?.email);
+  const cartItems = useSelector((state) => state.cart.cartItems)
   const dispatch = useDispatch();
+ 
 
   const handleLogout = () => {
-    console.log('logging out');
+    // console.log('logging out');
     logOutUser(dispatch);
     navigate('/')
     
@@ -33,7 +37,7 @@ const Navbar = () => {
       <div className="cart">
       <Link to="/cart" >
           <div className='shopping-cart'>
-            <h1><AiOutlineShoppingCart /></h1>
+            <h1><AiOutlineShoppingCart /><span className="counter">{cartItems.length}</span></h1>
           </div>
         </Link>
          

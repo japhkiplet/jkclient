@@ -1,42 +1,68 @@
-import { useContext } from 'react';
-import PRODUCTS from '../Product'
-import { ShopContext } from '../context/Context';
-import {CartItem} from './CartItem'
-import './cart.css'
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart, updateQuantity, getTotals } from '../redux/cartSlice';
 import { useNavigate } from 'react-router-dom';
+import './cart.css';
+import Payment from './Payment'
 
 const Cart = () => {
-    const navigate = useNavigate()
-    const {cartItems, getTotalCartAmount} = useContext(ShopContext);
-    const totalAmount = getTotalCartAmount()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user?.email);
+  const cartItems = useSelector((state) => state?.cart.cartItems);
+  const cartTotal = useSelector((state) => state?.cart?.cartTotalAmount);
+
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cartItems,dispatch]);
+
+  const handleQuantityChange = (item, quantity) => {
+    if (quantity === 0) {
+      dispatch(removeFromCart(item));
+    } else {
+      dispatch(updateQuantity({ ...item, cartTotalquantity: quantity }));
+    }
+  };
 
   return (
-    <div className="cart-container">
-        <div>
-            <h1>Your cart items</h1>
-        </div>
-        <div className="cartItems">
-            {PRODUCTS.map((product) =>{
-                if(cartItems[product.id] !== 0) {
-                    return< CartItem data= {product} />
-                }
-
-            })}
-        </div>
-        {totalAmount > 0 ?(
-
-        <div className="checkout">
-            <p>Total Amount : ${totalAmount}</p>
-            <div className='cartbuttons'>
-                <button  onClick={() => navigate('/pricing')}>Continue Shopping</button>
-                <button> CheckOut</button>
+    <div className='cart-container'>
+      <h1>Your Cart Items</h1>
+      {cartItems && cartItems.length > 0 ? (
+        <div className='cartItems'>
+          {cartItems.map((item) => (
+            <div key={item.id} className='product-card1'>
+              <div className="product-left">
+                <img src={item.ImageURL} alt={item.Title} style={{ width: '100px' }} />
+                <h2>{item.Title}</h2>
+              </div>
+              <div className="product-details">
+                <span>Price: ksh {item.Price}</span>
+                <p>Description: {item.Description}</p>
+                <p>Category: {item.Category}</p>
+                <div className="counthandler">
+                  <button onClick={() => handleQuantityChange(item, item.cartTotalquantity - 1)}>-</button>
+                  <input type="number" value={item.cartTotalquantity} onChange={(e) => handleQuantityChange(item, parseInt(e.target.value))} />
+                  <button onClick={() => handleQuantityChange(item, item.cartTotalquantity + 1)}>+</button>
+                </div>
+              </div>
             </div>
+          ))}
+          <div className="checkout">
+            <h3>Total: ksh {cartTotal}</h3>
+            <div className='cartbuttons'>
+              <button onClick={() => navigate('/pricing')}>Continue Shopping</button>
+              {user ? (<Payment  cartItems={cartItems}/>) : (<button onClick={() => navigate('/')}>login to checkout</button>)}
+            </div>
+          </div>
         </div>
-        ) : (
-            <h1>Your cart is empty</h1>
-        )}
+      ) : (
+        <div className="empty-cart-message">
+          <h2>Your Cart is Empty</h2>
+          <button className='pricingbtn' onClick={() => navigate('/pricing')}>Shop Now</button>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;
