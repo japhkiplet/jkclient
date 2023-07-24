@@ -1,40 +1,40 @@
-.sidebar-container{
-    display: flex;
-   
-  }
-  .sidebar{
-    background: rgb(95, 91, 91);
-    border-radius: 7px;
-    height: 100vh;
-    width: 150px;
-    color: white;
-    text-decoration: none;
-  }
-  .top-section{
-    display: flex;
-    
-    padding: 10px 
-  
-  }
-  .logo{
-    font-size: 30px;
-  }
-  
-  .link{
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    color: white;
-    text-decoration: none;
+.dashboard{
+  display: flex;
+  height: 100vh;
+  padding-top: 100px;
+}
+.sidenav{
+  border-right: 1px solid gray;
+  height: calc(100vh - 100px);
+  position: fixed;
+  overflow-y: auto;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
 
-    
-    
-  }
-  
- 
-  .link:hover{
-    background: rgb(118, 203, 252);
-    color: black;
-  }
-  
- 
+}
+h3 {
+  margin: 0 0 1rem 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 17px;
+}
+
+a {
+  text-decoration: none;
+  margin-bottom: 1rem;
+  font-size: 14px;
+}
+.content{
+  margin-left: 200px;
+  padding: 2rem 3rem;
+  width: 100%;
+}
+.link-active{
+  color: #4b70e2;
+}
+.link-inactive{
+  color: rgb(97, 97, 97);
+}

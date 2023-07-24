@@ -2,7 +2,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { apiDomain } from "../utils/utils";
 
-const PayButton = ({ cartItems }) => {
+const Payment = ({ cartItems }) => {
   const user = useSelector((state) => state.user.user?.email);
 
   const handleCheckout = () => {
@@ -12,8 +12,7 @@ const PayButton = ({ cartItems }) => {
       return;
     }
   
-    axios
-      .post(`${apiDomain}/stripe/create-checkout-session`, {
+    axios.post(`${apiDomain}/create-checkout-session`, {
         cartItems: cartItems, 
         userId: user,
       })
@@ -33,4 +32,4 @@ const PayButton = ({ cartItems }) => {
   );
 };
 
-export default PayButton;
+export default Payment;

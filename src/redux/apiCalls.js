@@ -29,12 +29,14 @@ export const getUser = async(dispatch) =>{
         
     } catch (error) {
         dispatch(userFailure())
+        
     }
 }
 
 export const logOutUser = async(dispatch)=>{
     // console.log(dispatch);
     dispatch(logOut())
+    alert('logout successful. see you soon')
 }
 
 export  const getProductsData = async(dispatch)=>{

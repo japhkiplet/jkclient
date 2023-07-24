@@ -1,0 +1,57 @@
+.styledsummary{
+    width: 100%;
+    display: flex;
+}
+.mainstats{
+    flex: 2;
+    width: 100%;
+    
+}
+.sidestats{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    width: 100%;
+}
+.overview{
+    background: rgb(48, 52, 78);
+    color: rgba(234, 234,255, .87);
+    width: 100%;
+    padding: 1.5rem;
+    height: 170px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.title > p{
+    font-size: 14px;
+    color: white;
+}
+.widgetwrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.styledsum{
+    display: flex;
+    align-items: center;
+}
+.sumicon{
+    margin-right: .5rem;
+    padding: .5rem;
+    border: 3px;
+    font-size: 20px;
+}
+.percentage{
+    margin-left: .5rem;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(26, 230, 26);
+    
+}
+.text > h3{
+    color: white;
+    font-weight: 900;
+}

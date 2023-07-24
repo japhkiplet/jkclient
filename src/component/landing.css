@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 3rem;
+    padding-top: 100px;
 
    
     
@@ -23,4 +24,29 @@
 
 .land-left{
     width: 45%;
+}
+
+@media only screen and (max-width: 600px){
+    .homepage {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 3rem;
+        gap: 7px;
+        padding: 20px;
+    
+       
+        
+    }
+    .image{
+       display: none;
+      
+    
+    }
+    .land-left{
+        width: 100%;
+    }
+    
+    
 }

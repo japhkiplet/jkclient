@@ -17,6 +17,7 @@ const schema = yup.object({
 
 function Product() { 
   const dispatch = useDispatch();
+  
     const onSubmit= async(data)=>{
       const { Title, Description, Category,   Price, imageurl } = data;
 
@@ -57,12 +58,10 @@ function Product() {
         {errors.Description && <p>{errors.Description.message}</p>}
         <input type='price' placeholder='price'{...register('Price')}/>
         {errors.Price && <p>{errors.Price.message}</p>}  
-        <input type='file' placeholder='images'{...register('imageurl')}/>
+        <input type='file'  placeholder='images'{...register('imageurl')}/>
         {errors.imageurl && <p>{errors.imageurl.message}</p>}
         <button className='bg' type='submit'>add </button>
     </form>
-
-   
 </div>
   )
 }

@@ -32,7 +32,7 @@ const Pricing = () => {
               <p>{product.Description}</p>
               <p>Category: {product.Category}</p>
               <button className="pricingbtn" onClick={() => handleAddToCart(product)}>
-                Add To Cart
+                +Add To Cart
               </button>
             </div>
           </div>

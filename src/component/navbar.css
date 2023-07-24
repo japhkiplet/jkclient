@@ -1,18 +1,31 @@
-
-
 .navbar-container{
-    width: 100vw;
-    height: 80px;
-    padding-left: 40px;
-    padding-top: 40px;
+    height: 100px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    background-color: #d9d9d9;
+    box-shadow: 0 10px 15px 10px rgba(0,0,0,0.2);
+}
+.nav-menu{
+    font-size: 50px;
+    color: #0f0e0e;
+    display: none;
+}.blog_logo {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
 }
 
 .blog_logo img{
-    width: 25%;
+    width: 100%;
     border-radius: 12px;
+    left: 40px;
+   
     
 }
 
@@ -24,7 +37,9 @@
     border-radius: 7px;
 
 }
-.blog a{
+.blog a,
+ .blog-menu a{
+    position: relative;
     text-decoration: none;
     list-style: none;
     padding:  0 30px ;
@@ -35,9 +50,10 @@
 
 .blog a::after{
     content: '';
-    left: 0;
+    position: absolute;
+    left: 4px;
     bottom: -6px;
-    width: 100%;
+    width: 80%;
     height: 3px;
     background: #0f0e0e;
     border-radius: 5px;
@@ -58,6 +74,7 @@
 }
 .cart img{
     width: 17%;
+    
     left: 40px;
     align-items: center;
 }
@@ -89,4 +106,49 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    row-gap: 10px;
+    padding: 20px 24px;
+}
+.profileImage{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+@media only screen and (max-width: 500px){
+    .blog{
+        display: none;
+    }
+    .blog-menu{
+        position: absolute;
+        bottom: -110%;
+        right: 0%;
+        background-color: #fffdfd;
+        backdrop-filter: blur(20px);
+        justify-content: space-between;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 7px 12px 0 rgba(0,0,0,0.2);
+        border-radius: 5px;
+    }
+    .blog-menu a{
+        position: relative;
+        text-decoration: none;
+        list-style: none;
+        padding:  0 30px ;
+        color: black;
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 7px;
+        font-style: italic;
+    }
+    
+    
+    .nav-menu{
+        display: block;
+    }
+    .blog_logo img{
+        border-radius: 12px;
+        /* margin-bottom: 1rem; */
+        
+    }
 }

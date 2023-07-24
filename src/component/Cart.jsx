@@ -10,7 +10,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user?.email);
   const cartItems = useSelector((state) => state?.cart.cartItems);
-  const cartTotal = useSelector((state) => state?.cart?.cartTotalAmount);
+  const cartTotalAmount = useSelector((state) => state?.cart?.cartTotalAmount);
 
   useEffect(() => {
     dispatch(getTotals());
@@ -30,31 +30,35 @@ const Cart = () => {
       {cartItems && cartItems.length > 0 ? (
         <div className='cartItems'>
           {cartItems.map((item) => (
-            <div key={item.id} className='product-card1'>
-              <div className="product-left">
-                <img src={item.ImageURL} alt={item.Title} style={{ width: '100px' }} />
-                <h2>{item.Title}</h2>
-              </div>
-              <div className="product-details">
-                <span>Price: ksh {item.Price}</span>
-                <p>Description: {item.Description}</p>
-                <p>Category: {item.Category}</p>
-                <div className="counthandler">
-                  <button onClick={() => handleQuantityChange(item, item.cartTotalquantity - 1)}>-</button>
-                  <input type="number" value={item.cartTotalquantity} onChange={(e) => handleQuantityChange(item, parseInt(e.target.value))} />
-                  <button onClick={() => handleQuantityChange(item, item.cartTotalquantity + 1)}>+</button>
+            <div className='cart-wrapper'>
+              <div key={item.id} className='product-card1'>
+                <div className="product-left">
+                  <img src={item.ImageURL} alt={item.Title} style={{ width: '100px' }} />
+                  <h2>{item.Title}</h2>
+                </div>
+                <div className="product-details">
+                  <span>Price: ksh {item.Price}</span>
+                  <p>Description: {item.Description}</p>
+                  <p>Category: {item.Category}</p>
+                  <div className="counthandler">
+                    <button onClick={() => handleQuantityChange(item, item.cartTotalquantity - 1)}>-</button>
+                    <input type="number" value={item.cartTotalquantity} onChange={(e) => handleQuantityChange(item, parseInt(e.target.value))} />
+                    <button onClick={() => handleQuantityChange(item, item.cartTotalquantity + 1)}>+</button>
+                  </div>
                 </div>
               </div>
             </div>
+            
           ))}
-          <div className="checkout">
-            <h3>Total: ksh {cartTotal}</h3>
+           <div className="checkout">
+            <h3>Total: ksh {cartTotalAmount}</h3>
             <div className='cartbuttons'>
               <button onClick={() => navigate('/pricing')}>Continue Shopping</button>
               {user ? (<Payment  cartItems={cartItems}/>) : (<button onClick={() => navigate('/')}>login to checkout</button>)}
             </div>
           </div>
-        </div>
+          </div>
+          
       ) : (
         <div className="empty-cart-message">
           <h2>Your Cart is Empty</h2>

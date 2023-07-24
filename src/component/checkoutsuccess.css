@@ -1,0 +1,15 @@
+.checkout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+.checkout > h2{
+    color: red;
+}
+.check{
+    width: 20%;
+    background: rgba(194, 95, 15, 0.849);
+    font-size: 30px;
+}
