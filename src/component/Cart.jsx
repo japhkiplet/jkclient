@@ -41,7 +41,7 @@ const Cart = () => {
                   <p>Description: {item.Description}</p>
                   <p>Category: {item.Category}</p>
                   <div className="counthandler">
-                    <button onClick={() => handleQuantityChange(item, item.cartTotalquantity - 1)}>-</button>
+                    <button onClick={() => handleQuantityChange(item, item.cartTotalquantity - 1)} style={{ color:'red' }}>-</button>
                     <input type="number" value={item.cartTotalquantity} onChange={(e) => handleQuantityChange(item, parseInt(e.target.value))} />
                     <button onClick={() => handleQuantityChange(item, item.cartTotalquantity + 1)}>+</button>
                   </div>

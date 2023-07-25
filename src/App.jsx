@@ -14,7 +14,7 @@ import CheckoutSuccess from './component/CheckoutSuccess';
 import Order from './admin/Order';
 import Products from './admin/Products';
 import Summary from './admin/Summary';
-// import Users from './admin/Users';
+import Users from './admin/Users';
 
 function App() {
   const user = useSelector((state) => state.user.user?.email);
@@ -37,6 +37,7 @@ function App() {
               <Route path="product" element={<Product />} />
             </Route>
             <Route path="order" element={<Order />} />
+            <Route path="user" element={<Users />} />
           </Route>
         </Routes>
       </BrowserRouter>

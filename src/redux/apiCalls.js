@@ -4,7 +4,14 @@ import { createProductStart, createProductSuccess,createProductFailure } from '.
 import axios from 'axios';
 import { apiDomain } from '../utils/utils';
 
-
+// const setHeaders = () => {
+//     const headers= {
+//         headers:{
+//             "x-auth-token": localStorage.getItem('token')
+//         }
+//     };
+//     return headers;
+// };
 
 export const loginUser = async(dispatch,user)=>{
     // console.log(user,dispatch);

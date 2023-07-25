@@ -15,6 +15,7 @@ const Navbar = () => {
   const navigate = useNavigate()
   const [toggleMenu, setToggleMenu] = useState(false)
   const name = useSelector((state) => state.user.user?.email);
+  const auth = useSelector((state) => state.user.user?.isAdmin);
   const cartItems = useSelector((state) => state.cart.cartItems)
   const dispatch = useDispatch();
  
@@ -44,7 +45,8 @@ const Navbar = () => {
             <h1><AiOutlineShoppingCart /><span className="counter">{cartItems.length}</span></h1>
           </div>
         </Link>
-        <Link to='/admin/summary'>Admin </Link>
+        {auth ? <Link to='/admin/summary'>Admin </Link> : null }
+        
          
         {
           name && <div className="navbar-right">
